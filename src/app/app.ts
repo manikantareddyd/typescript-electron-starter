@@ -12,10 +12,16 @@ class App {
     }
 
     createWindow() {
+        
         this.mainWindow = new electron.BrowserWindow({
-            width: 800,
-            height: 600
+            titleBarStyle: "hidden"
         });
+
+        this.mainWindow.loadURL(url.format({
+            pathname: path.join(__dirname, "..", 'ui', 'index.html'),
+            protocol: 'file:',
+            slashes: true
+        }))
     }
 }
 
